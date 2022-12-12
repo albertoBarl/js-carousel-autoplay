@@ -84,10 +84,4 @@ function prevImg() {
 }
 
 // AUTOPLAY
-setInterval(nextImg, 3000);
-
-setInterval(function nextImg() {
-  if (itemActive === items.lenght - 1) {
-    clearInterval;
-  }
-});
+let next_animation = setInterval(nextImg, 1500);
