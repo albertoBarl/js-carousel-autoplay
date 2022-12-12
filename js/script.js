@@ -33,12 +33,12 @@ const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
 
 // BOOTTONE "SUCCESSIVO"
-next.addEventListener("click", function () {
-  // 1- SE l'immagine non è l'ultima
-  // 1.1- tolgo .active dall'immagine attuale e lo passo alla prossima
-  // 1.2- tolgo .active al pallino attuale e lo passo al prossimo
-  // 1.3- eseguo l'incremento
-  // 2- ALTRIMENTI non faccio nulla
+next.addEventListener("click", nextImg);
+
+// BOTTONE "PRECEDENTE"
+prev.addEventListener("click", prevImg);
+
+function nextImg() {
   if (itemActive < items.length - 1) {
     // RIMUOVO .ACTIVE AGLI ELEMENTI VISIBILI
     items[itemActive].classList.remove("active");
@@ -56,10 +56,9 @@ next.addEventListener("click", function () {
     next.classList.add("hidden");
     prev.classList.remove("hidden");
   }
-});
+}
 
-// BOTTONE "PRECEDENTE"
-prev.addEventListener("click", function () {
+function prevImg() {
   // 1- SE l'immagine non è la prima
   // 1.1- tolgo .active dall'immagine attuale e lo passo alla precedente
   // 1.2- tolgo .active al pallino attuale e lo passo al precedente
@@ -82,35 +81,12 @@ prev.addEventListener("click", function () {
     prev.classList.add("hidden");
     next.classList.remove("hidden");
   }
-});
+}
 
 // AUTOPLAY
-setInterval(function () {
-  // 1- SE l'immagine non è l'ultima
-  // 1.1- tolgo .active dall'immagine attuale e lo passo alla prossima
-  // 1.2- tolgo .active al pallino attuale e lo passo al prossimo
-  // 1.3- eseguo l'incremento
-  // 2- ALTRIMENTI non faccio nulla
-  if (itemActive < items.length - 1) {
-    // RIMUOVO .ACTIVE AGLI ELEMENTI VISIBILI
-    items[itemActive].classList.remove("active");
-    circles[itemActive].classList.remove("active");
+setInterval(nextImg, 3000);
 
-    // ESEGUO INCREMENTO
-    itemActive++;
-
-    // AGGIUNGO .ACTIVE ALL'ELEMENTO SUCCESSIVO
-    items[itemActive].classList.add("active");
-    circles[itemActive].classList.add("active");
-  }
-
-  if (itemActive === items.length - 1) {
-    next.classList.add("hidden");
-    prev.classList.remove("hidden");
-  }
-}, 3000);
-
-setInterval(function () {
+setInterval(function nextImg() {
   if (itemActive === items.lenght - 1) {
     clearInterval;
   }
