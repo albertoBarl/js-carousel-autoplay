@@ -33,10 +33,24 @@ const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
 
 // BOOTTONE "SUCCESSIVO"
-next.addEventListener("click", nextImg);
+let next_animation;
+let prev_animation;
+next.addEventListener("click", function () {
+  next_animation = setInterval(nextImg, 3000);
+
+  setTimeout(() => {
+    clearInterval(prev_animation);
+  }, 1000);
+});
 
 // BOTTONE "PRECEDENTE"
-prev.addEventListener("click", prevImg);
+prev.addEventListener("click", function () {
+  prev_animation = setInterval(prevImg, 3000);
+
+  setTimeout(() => {
+    clearInterval(next_animation);
+  }, 1000);
+});
 
 function nextImg() {
   if (itemActive < items.length - 1) {
@@ -83,5 +97,10 @@ function prevImg() {
   }
 }
 
-// AUTOPLAY
-let next_animation = setInterval(nextImg, 1500);
+function stopSliding() {
+  clearInterval(next_animation, prev_animation);
+}
+
+function letsSlide() {
+  next_animation = setInterval(nextImg, 3000);
+}
