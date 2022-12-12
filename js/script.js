@@ -83,3 +83,35 @@ prev.addEventListener("click", function () {
     next.classList.remove("hidden");
   }
 });
+
+// AUTOPLAY
+setInterval(function () {
+  // 1- SE l'immagine non è l'ultima
+  // 1.1- tolgo .active dall'immagine attuale e lo passo alla prossima
+  // 1.2- tolgo .active al pallino attuale e lo passo al prossimo
+  // 1.3- eseguo l'incremento
+  // 2- ALTRIMENTI non faccio nulla
+  if (itemActive < items.length - 1) {
+    // RIMUOVO .ACTIVE AGLI ELEMENTI VISIBILI
+    items[itemActive].classList.remove("active");
+    circles[itemActive].classList.remove("active");
+
+    // ESEGUO INCREMENTO
+    itemActive++;
+
+    // AGGIUNGO .ACTIVE ALL'ELEMENTO SUCCESSIVO
+    items[itemActive].classList.add("active");
+    circles[itemActive].classList.add("active");
+  }
+
+  if (itemActive === items.length - 1) {
+    next.classList.add("hidden");
+    prev.classList.remove("hidden");
+  }
+}, 3000);
+
+setInterval(function () {
+  if (itemActive === items.lenght - 1) {
+    clearInterval;
+  }
+});
