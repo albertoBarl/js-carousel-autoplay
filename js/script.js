@@ -84,4 +84,4 @@ function prevImg() {
 }
 
 // AUTOPLAY
-let next_animation = setInterval(nextImg, 1500);
+setInterval(nextImg, 1500);
