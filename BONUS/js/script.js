@@ -36,20 +36,16 @@ const next = document.querySelector(".next");
 let next_animation;
 let prev_animation;
 next.addEventListener("click", function () {
-  next_animation = setInterval(nextImg, 3000);
+  next_animation = setInterval(nextImg, 2000);
 
-  setTimeout(() => {
-    clearInterval(prev_animation);
-  }, 1000);
+  clearInterval(prev_animation);
 });
 
 // BOTTONE "PRECEDENTE"
 prev.addEventListener("click", function () {
-  prev_animation = setInterval(prevImg, 3000);
+  prev_animation = setInterval(prevImg, 2000);
 
-  setTimeout(() => {
-    clearInterval(next_animation);
-  }, 1000);
+  clearInterval(next_animation);
 });
 
 function nextImg() {
@@ -102,5 +98,5 @@ function stopSliding() {
 }
 
 function letsSlide() {
-  next_animation = setInterval(nextImg, 3000);
+  next_animation = setInterval(nextImg, 2000);
 }
