@@ -95,7 +95,8 @@ function prevImg() {
 
 // PLAY AND STOP BUTTONS
 function stopSliding() {
-  clearInterval(next_animation, prev_animation);
+  clearInterval(next_animation);
+  clearInterval(prev_animation);
 }
 
 function letsSlide() {
